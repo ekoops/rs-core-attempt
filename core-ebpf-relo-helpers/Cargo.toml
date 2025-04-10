@@ -1,0 +1,18 @@
+[package]
+name = "core-ebpf-relo-helpers"
+version = "0.1.0"
+edition = "2021"
+
+include = [
+    "src/c/relo_helpers.c",
+    "src/c/relo_helpers.h",
+]
+links = "relo_helpers"
+
+[dependencies]
+aya-ebpf = { workspace = true }
+paste = "1.0.15"
+
+[build-dependencies]
+bindgen = { version = "0.71.1", features = ["runtime"] }
+cc = "1.2.10"
