@@ -63,16 +63,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "aya-build"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "765c92c523541cbf5e3a94c7a6ff4068a4d9537f98a2eeb136461c0537ded8c1"
-dependencies = [
- "anyhow",
- "cargo_metadata",
-]
-
-[[package]]
 name = "aya-ebpf"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -301,8 +291,8 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "aya",
- "aya-build",
  "aya-log",
+ "cargo_metadata",
  "core-ebpf",
  "env_logger",
  "libc",

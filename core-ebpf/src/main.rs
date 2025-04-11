@@ -7,9 +7,11 @@ use aya_log_ebpf::info;
 
 #[fexit]
 fn core(ctx: FExitContext) -> u32 {
-    let task = unsafe {bpf_get_current_task()} as *mut _;
-    let start_time = unsafe {core_ebpf_relo_helpers::ffi::task_struct_start_time(task)};
-    info!(&ctx, "task start time: {}", unsafe {*start_time});
+    let task = unsafe { bpf_get_current_task() } as *mut _;
+    let Ok(start_time) = core_ebpf_relo_helpers::task_struct_start_time(task) else {
+        return 1;
+    };
+    info!(&ctx, "task start time: {}", start_time);
     0
 }
 
